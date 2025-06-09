@@ -1,0 +1,2 @@
+GET https://www.ejemplo.com/api/datos
+Accept: application/json
