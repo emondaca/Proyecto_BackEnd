@@ -130,6 +130,6 @@ router.get("/tienda/carrito", reportarConsulta, tiendaController.traerCarrito)
 
 router.get("/tienda/:id", reportarConsulta, tiendaController.traerProducto)
 
-router.get("/tienda/", reportarConsulta, tiendaController.traerLista)
+router.get("/tienda", reportarConsulta, tiendaController.traerLista)
 
 export default router;
