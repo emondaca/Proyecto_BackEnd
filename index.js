@@ -25,14 +25,22 @@ const swaggerSpec = {
         },
         servers: [
             {
-                url: "http://localhost: 3000"
+                /*Desarrollo*/
+                /*url: "http://localhost: 3000"*/
+                /*Producción*/
+                url: 'https://proyecto-backend-h0h6.onrender.com'
             },
         ],
     },
     apis: [`${path.join(__dirname, "./routes/*.js")}`]
 }
 
-app.listen(3000, console.log("app listening on port 3000"));
+/*Desarrollo*/
+/* app.listen(3000, console.log("app listening on port 3000")); */
+
+/*Producción*/
+
+app.listen(10000, console.log("app listening on port 3000"))
 
 app.use(express.json());
 app.use(cors());
