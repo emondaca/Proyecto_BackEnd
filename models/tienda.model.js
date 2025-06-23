@@ -23,8 +23,11 @@ const saveCart = async (cart_name, carrito) => {
     return "Guardado"
 }
 
-const getCart = async (cartId) => {
-
+const getCart = async (cart_name) => {
+    const consulta = `SELECT ${cart_name}.product_id AS id, productos.imagen AS img, productos.nombre AS name, productos.precio AS price, ${cart_name}.cantidad AS count
+    FROM ${cart_name} INNER JOIN productos ON ${cart_name}.product_id = productos.id`;
+    const { rows } = await pool.query(consulta)
+    return rows;
 };
 
 const getOneProduct = async (id) => {
@@ -49,9 +52,7 @@ const getProducts = async (limits, order_by, page) =>  {
         filtro = filtros.join(" ");
         consulta += ` ${filtro}`;
     };
-    console.log(consulta);
     const { rows } = await pool.query(consulta);
-    console.log(rows);
     return rows;
     
 

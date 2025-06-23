@@ -126,7 +126,7 @@ router.get("/clientes/perfil", reportarConsulta, authMiddleware, clientControlle
 
 router.post("/tienda/carrito", reportarConsulta, authMiddleware, tiendaController.guardarCarrito)
 
-router.get("/tienda/carrito", reportarConsulta, tiendaController.traerCarrito)
+router.get("/tienda/carrito", reportarConsulta, authMiddleware, tiendaController.traerCarrito)
 
 router.get("/tienda/:id", reportarConsulta, tiendaController.traerProducto)
 

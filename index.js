@@ -14,6 +14,7 @@ const { swaggerUI } = swagger_ui;
 const { swaggerJSDoc } = swagger_doc
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const port = process.env.PORT
 
 const app = express();
 const swaggerSpec = {
@@ -28,19 +29,14 @@ const swaggerSpec = {
                 /*Desarrollo*/
                 /*url: "http://localhost: 3000"*/
                 /*Producción*/
-                url: 'https://proyecto-backend-h0h6.onrender.com'
+                url: `https://proyecto-backend-h0h6.onrender.com: ${port}`
             },
         ],
     },
     apis: [`${path.join(__dirname, "./routes/*.js")}`]
 }
 
-/*Desarrollo*/
-/* app.listen(3000, console.log("app listening on port 3000")); */
-
-/*Producción*/
-
-app.listen(10000, console.log("app listening on port 3000"))
+app.listen(port, console.log(`app listening on port ${port}`))
 
 app.use(express.json());
 app.use(cors());
